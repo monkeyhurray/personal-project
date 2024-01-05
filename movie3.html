@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="movie3.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .title_div {
+        background-color: blanchedalmond;
+        height: 100px;
+        width: 100%;
+        padding: 60px auto 60px auto;
+        margin-bottom: 30px;
+      }
+
+      .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0px auto 50px auto;
+      }
+      .myCard {
+        border-radius: 15px;
+        float: left;
+      }
+      .myCards {
+        width: 100%;
+        margin: 600px auto 0px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="title_div">
+      <div class="title">
+        <h1><b>내배캠 최고 평점 영화 콜렉션</b></h1>
+      </div>
+    </div>
+    <div class="mycards">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div id="movieList"></div>
+      </div>
+    </div>
+    <script src="movie3.js"></script>
+  </body>
+</html>
