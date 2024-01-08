@@ -7,13 +7,15 @@ const options = {
   },
 };
 
-fetch(
+const obj = [
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-  options
-)
+  options,
+];
+const movieListDiv = document.getElementById("movieList");
+
+fetch(obj[0], obj[1])
   .then((response) => response.json())
   .then((response) => {
-    const movieListDiv = document.getElementById("movieList");
     response.results.forEach((movie) => {
       const movieDive = document.createElement("div");
       movieDive.innerHTML = `
@@ -42,5 +44,32 @@ const handleImageClick = (movieId) => {
 
 const findMovie = () => {
   let search = document.getElementById("search").value;
-  alert(search);
+
+  fetch(obj[0], obj[1])
+    .then((response) => response.json())
+    .then((response) => {
+      response.results.forEach((movie) => {
+        const movieSearchDiv = document.getElementById("searchList");
+
+        if (search.toLowerCase() === movie.title.toLowerCase()) {
+          const searchDive = document.createElement("div");
+          searchDive.innerHTML = `
+            <div class="movieCard-center">
+              <div class="movieCard">
+                <div onclick="handleImageClick('${movie.id}')">
+                  <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="movieCard-img" alt="" />
+                </div>
+                <div class="movieCard-title">
+                  <h5>${movie.title}</h5>
+                </div>
+                <p class="movieCard-content">${movie.overview}</p>
+                <p class="movieCard-vote-average">평점 ${movie.vote_average}</p> 
+              </div>
+            </div>`;
+
+          movieListDiv.innerHTML = "";
+          movieSearchDiv.appendChild(searchDive);
+        }
+      });
+    });
 };

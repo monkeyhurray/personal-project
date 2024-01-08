@@ -24,8 +24,13 @@
         action="file:///C:/Users/82109/Documents/personal-project/movie2.html"
       >
         <div class="search">
-          <input type="text" onchange="inputValueChange()" id="search"
-          placeholder="영화 검색란" value="" / >
+          <input
+            type="text"
+            onchange="inputValueChange()"
+            id="search"
+            placeholder="영화 검색란"
+            value=""
+          />
           <button onclick="findMovie()" type="button">검색</button>
         </div>
       </form>
@@ -33,6 +38,7 @@
 
     <div class="movieList" id="movieList"></div>
 
+    <div class="searchList" id="searchList"></div>
     <script src="movie2.js"></script>
   </body>
 </html>
